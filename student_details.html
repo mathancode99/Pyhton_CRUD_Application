@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+        }
+        table,th,td{
+            border: 2px solid black;
+            border-collapse:collapse ;
+            height: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+        table,thead,tbody{
+            width: 100%;
+        }
+        .btn{
+            border: none;
+            cursor: pointer;
+            height: 25px;
+            border-radius: 5px;
+        }
+        .update{
+            background-color: blue;
+            color: white;
+        }
+        .del{
+            background-color:red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1>Student Details</h1>
+    </center>
+
+    <table>
+        <thead>
+            <tr>
+                <th>student name</th>
+                <th>student dept</th>
+                <th>student Roll_No</th>
+                <th>student mobile_No</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Student in all_details %}
+               <tr>
+                  <td>{{Student.S_name}}</td>
+                  <td>{{Student.S_dept}}</td>
+                  <td>{{Student.S_rollno}}</td>
+                  <td>{{Student.S_mobile}}</td>
+                  <td><a href="{% url 'update_info' Student.id %}"><button class="btn update">Update</button></a></td>
+                  <td><a href="{% url 'del_info' Student.id %}"><button class="btn del">Delete</button></a></td>
+               </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+</body>
+
+</html>

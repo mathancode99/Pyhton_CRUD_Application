@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            min-height: 400px;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            justify-content: space-evenly;
+            background-color: blueviolet;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        input{
+            height: 30px;
+            width: 80%;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            padding-left: 10px;
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <form action="" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <h2>Student info</h2>
+        <input type="text" placeholder="name.." name="name" value="{{data.S_name}}">
+        <input type="text" placeholder="dept.." name="dept" value="{{data.S_dept}}">
+        <input type="text" placeholder="roll no..." name="rollno" value="{{data.S_rollno}}">
+        <input type="text" placeholder="mobil no..." name="mobile" value="{{data.S_mobile}}">
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>
